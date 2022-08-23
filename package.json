@@ -15,7 +15,7 @@
     "lint": "esw src/pages/ src/components/ --color --ext .ts,.tsx,.js",
     "lint:watch": "npm run lint -- --watch",
     "open:src": "next dev",
-    "precommit": "npm test -- -u && next lint",
+    "precommit": "npm test -- -u && npm run lint",
     "start": "next start",
     "start:staging": "env-cmd -f .env.test next start",
     "start:production": "env-cmd -f .env.production next start",
