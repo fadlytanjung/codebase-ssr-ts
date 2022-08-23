@@ -1,8 +1,9 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import styles from './styles.module.scss';
 
 interface Props {
-  className: string;
+  className?: string;
   children: string | JSX.Element;
   onClick: () => void;
   variant: string;

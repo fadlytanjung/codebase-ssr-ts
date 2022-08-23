@@ -5,9 +5,10 @@ import { Chip, IconButton, Menu, MenuItem, Typography } from '@mui/material';
 import { EditRounded, DeleteRounded, MoreVert, SaveAs } from '@mui/icons-material';
 import { useAppDispatch, useAppSelector } from '@/hooks/index';
 import { addTodos, Todo, selectTodos, updateStatus, deletedTodos, updateTodos, handleEdit } from '@/features/todos/todosSlice';
+import configs from '@/configs';
 import { nanoid } from '@reduxjs/toolkit';
 
-function Todos() {
+function Todos(props: { data: Record<string, unknown>, api_endpoint: string }) {
   const [todo, setTodo] = useState<string>('');
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [todoId, setTodoId] = useState('');
@@ -102,8 +103,28 @@ function Todos() {
           </MenuItem>
         ))}
       </Menu>
+      <Typography variant="body1">
+        API ENDPOINT: {props.api_endpoint}
+      </Typography>
+      <Typography variant="caption">
+        APP VERSION: {configs.APP_VERSION}
+      </Typography>
     </div>
   );
 }
 
+export async function getServerSideProps() {
+  // Fetch data from external API
+  /* eslint-disable no-console */
+  console.log(`API ENDPOINT: ${configs.BASE_URL_API}`);
+  const res = await fetch('https://api.github.com/users/fadlytanjung');
+  const data = await res.json();
+  // Pass data to the page via props
+  return {
+    props: {
+      data,
+      api_endpoint: configs.BASE_URL_API
+    }
+  };
+}
 export default Todos;
