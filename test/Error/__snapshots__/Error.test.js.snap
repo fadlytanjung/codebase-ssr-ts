@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Home Page It should render with snapshot 1`] = `
+<DocumentFragment>
+  <h1>
+     Error Page 
+  </h1>
+</DocumentFragment>
+`;

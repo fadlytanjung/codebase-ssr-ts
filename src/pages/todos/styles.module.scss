@@ -1,0 +1,44 @@
+@import '@/styles/base';
+
+.todoWrapper{
+  max-width: 540px;
+  margin: 0px auto;
+  padding: 20px 16px;
+  font-size: 14px;
+  .btn{
+    margin-top: 16px;
+  }
+  .inputField{
+    border: $border;
+    padding: 8px 12px;
+    width: 100%;
+  }
+  .inputField:focus-visible, .inputField:focus{
+    border: $border !important;
+    outline: none;
+  }
+  .listTodosWrapper{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .todo{
+      padding: 16px;
+      border: $border;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        max-width: 80%;
+      }
+      .actionTodo{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: row;
+        gap: 5px;
+      }
+    }
+  }
+}

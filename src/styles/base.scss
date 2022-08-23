@@ -1,0 +1,17 @@
+@import './colors.scss';
+@import './function.scss';
+@import './mixins.scss';
+
+$color: (
+  primary: $primary,
+  secondary: $secondary,
+  alert: $alert,
+);
+
+$opacity: (
+  primary: $primary-opacity,
+  secondary: $secondary-opacity,
+);
+
+$border: 0.5px solid map-get($secondary, normal);
+$shadow: 0px 8px 16px rgba(0, 0, 0, 0.14);

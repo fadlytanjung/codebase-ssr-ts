@@ -1,0 +1,7 @@
+.overrideBtn{
+  min-width: 12rem !important;
+}
+
+.root > button {
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,37 @@
+$primary: (
+  base: #F04F41,
+  dark: #CF3D39,
+  light: #FCCFD4,
+  normal: #E17979,
+);
+
+$primary-opacity: (
+  base: 0.16,
+);
+
+$secondary: (
+  base: #808285,
+  dark: #4C4E50,
+  light: #F0F2F6,
+  lighter: #ffffff,
+  normal: #C8CACD,
+);
+
+$secondary-opacity: (
+  base: 0.5,
+  dark: 0.68,
+);
+
+$alert: (
+  success: #44AB4A,
+  error: #D44333,
+  warning: #FFAF45,
+  info: #276EF1,
+);
+
+$alert-opacity: (
+  success: 0.2,
+  error: 0.2,
+  warning: 0.2,
+  info: 0.2,
+  )

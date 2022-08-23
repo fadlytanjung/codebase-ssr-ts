@@ -1,0 +1,49 @@
+@import '@/styles/colors.scss';
+
+.button {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #212529;
+  cursor: pointer;
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 0.375rem 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.button:focus{
+  outline: none;
+}
+
+.primary {
+  background-color: map-get($primary, dark);
+  border: 1px solid map-get($primary, dark);
+  color: white;
+}
+
+.primary:focus {
+  box-shadow: 0px 0px 0px 3.2px rgba(237, 49, 48, 0.25);
+}
+
+.secondary {
+  background-color: #6c757d;
+  border: 1px solid #6c757d;
+  color: white;
+}
+
+.secondary:focus {
+  box-shadow: 0px 0px 0px 3.2px rgba(133, 132, 132, 0.25);
+}
+
+.small {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
