@@ -23,7 +23,7 @@ function Todos(props: { data: Record<string, unknown>, api_endpoint: string }) {
     setAnchorEl(event.currentTarget);
     const idxTodos = todos.findIndex(el => el.id === id);
     setTodoStatus(todos[idxTodos].status);
-    setTodoId(id); 
+    setTodoId(id);
   };
 
   const handleMenuItemClick = (
