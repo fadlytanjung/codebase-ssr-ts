@@ -37,7 +37,13 @@
       ],
       "@/configs":[
         "configs"
-      ]
+      ],
+      "@/utils/*": [
+        "utils/*"
+      ],
+      "@/configs/*": [
+        "configs/*"
+      ],
     }
   },
   "include": [

@@ -1,26 +1,35 @@
+import React from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
-import { Provider } from 'react-redux';
 import { ThemeProvider } from '@mui/material/styles';
+import { Provider } from 'react-redux';
 import CssBaseline from '@mui/material/CssBaseline';
 /* eslint-disable import/named */
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import theme from '../material-ui/theme';
 import createEmotionCache from '../material-ui/createEmotionCache';
-import store from '../store';
-import React from 'react';
+import { wrapper, store } from '../store';
+import { SessionProvider } from 'next-auth/react';
+import type { NextComponentType } from 'next';
 import '@/styles/global.css';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
-interface MyAppProps extends AppProps {
+type CustomAppProps = AppProps & {
+  Component: NextComponentType & { auth?: boolean }
+}
+
+interface MyAppProps extends CustomAppProps {
   emotionCache: EmotionCache;
 }
 
 function MyApp(props: MyAppProps) {
 
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const {
+    Component, emotionCache = clientSideEmotionCache,
+    pageProps: { session, ...pageProps }
+  } = props;
 
   return (
     <CacheProvider value={emotionCache}>
@@ -67,16 +76,18 @@ function MyApp(props: MyAppProps) {
         />
       </Head>
 
-      {/* Component yang dirender */}
+      {/* Rendered Component */}
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <SessionProvider session={session}>
+          <ThemeProvider theme={theme}>
+            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+            <CssBaseline />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </SessionProvider>
       </Provider>
     </CacheProvider>
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);

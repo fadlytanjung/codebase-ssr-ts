@@ -12,12 +12,7 @@ export interface TodoState {
 }
 
 const initialState: TodoState = {
-  listTodos: [{
-    id: '1',
-    item: 'Todo 1',
-    status: 'done',
-    isEdit: true,
-  }],
+  listTodos: [],
 }
 
 export const counterSlice = createSlice({

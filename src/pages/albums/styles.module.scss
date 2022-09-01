@@ -1,0 +1,11 @@
+
+.cssOverflowContent{
+  transition: all .8s ease;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+.cssTitleWrapper:hover .cssOverflowContent{
+  opacity: 0.7;
+}

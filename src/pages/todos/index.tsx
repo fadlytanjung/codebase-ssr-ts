@@ -5,8 +5,8 @@ import { Chip, IconButton, Menu, MenuItem, Typography } from '@mui/material';
 import { EditRounded, DeleteRounded, MoreVert, SaveAs } from '@mui/icons-material';
 import { useAppDispatch, useAppSelector } from '@/hooks/index';
 import { addTodos, Todo, selectTodos, updateStatus, deletedTodos, updateTodos, handleEdit } from '@/features/todos/todosSlice';
-import configs from '@/configs';
 import { nanoid } from '@reduxjs/toolkit';
+import configs from '@/configs';
 
 function Todos(props: { data: Record<string, unknown>, api_endpoint: string }) {
   const [todo, setTodo] = useState<string>('');
